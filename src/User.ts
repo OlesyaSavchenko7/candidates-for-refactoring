@@ -49,3 +49,54 @@ class User {
 
   // ... (other methods)
 }
+
+
+/**
+ * Что плохо
+ * 
+ * Слишком много параметров конструктора. Возможны потом ошибки, т.к
+ * Трудно уследить за порядком и типами параметров.
+ * 
+ * Дублированный код: В исходном коде было много дублирующегося кода в
+ * конструкторе, где каждое свойство назначалось отдельно. 
+ * 
+ */
+
+class UserWithProps {
+  private props: {
+    name: string;
+    age: number;
+    address: string;
+    phoneNumber: string;
+    email: string;
+    role: string;
+    isActive: boolean;
+    isVerified: boolean;
+    isPremium: boolean;
+    lastLogin: Date;
+    registrationDate: Date;
+    profilePicture: string;
+    bio: string;
+    interests: string[];
+  };
+
+  constructor(props: {
+    name: string;
+    age: number;
+    address: string;
+    phoneNumber: string;
+    email: string;
+    role: string;
+    isActive: boolean;
+    isVerified: boolean;
+    isPremium: boolean;
+    lastLogin: Date;
+    registrationDate: Date;
+    profilePicture: string;
+    bio: string;
+    interests: string[];
+  }) {
+    // Использование глубокого клонирования
+    this.props = structuredClone(props);
+  }
+}

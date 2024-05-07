@@ -10,6 +10,7 @@ class SomeClass {
       }
 
       try {
+        // await добавить ?
           doSomethingSafe();
       } catch (Exception e) {
           e.printStackTrace();
